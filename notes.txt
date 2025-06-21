@@ -1,0 +1,10 @@
+fake_datalog.py work as expected
+need to create more csvs with more fake data as a daily report example
+and a weekly csv file report with trending increase on mm/sec vibration readings
+
+
+
+https://www.ifm.com/us/en/product/VTV122
+
+https://www.automation.com/en-us/articles/july-2022/condition-monitoring-vibration-transmitters-plcs
+
