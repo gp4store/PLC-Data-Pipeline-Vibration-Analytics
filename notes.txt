@@ -6,6 +6,7 @@ and a weekly csv file report with trending increase on mm/sec vibration readings
 06222025
 Gonna have the script running every 24 hours in a docker container.
 Make everything on us-east-1 BY DEFAULT
+Move bucket and bucket content to us-east-1
 
 
 https://www.ifm.com/us/en/product/VTV122
