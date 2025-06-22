@@ -3,6 +3,10 @@ need to create more csvs with more fake data as a daily report example
 and a weekly csv file report with trending increase on mm/sec vibration readings
 
 
+06222025
+Gonna have the script running every 24 hours in a docker container.
+Make everything on us-east-1 BY DEFAULT
+
 
 https://www.ifm.com/us/en/product/VTV122
 
