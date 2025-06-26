@@ -4,21 +4,19 @@ import os
 
 s3 = boto3.client('s3')
 today = datetime.now()
-
-# Create partitioned S3 key
 s3_key = f"plc-logs/year={today.year}/month={today.month:02d}/day={today.day:02d}/plc-data-{today.strftime('%Y%m%d')}.csv"
 
 try:
-    # Upload your daily log file
+
     s3.upload_file(
-        'local-plc-log.csv',  # your local file
-        'vibration-daily-readings-log-project',  # your S3 bucket
+        'the-file-name-your-plc-creates',
+        'your-s3-bucket-name',
         s3_key
     )
     
-    # Remove local file after successful upload
-    if os.path.exists('local-plc-log.csv'):
-        os.remove('local-plc-log.csv')
+
+    if os.path.exists('the-file-name-your-plc-creates'):
+        os.remove('the-file-name-your-plc-creates')
     
     print("File uploaded to S3 successfully!")
     

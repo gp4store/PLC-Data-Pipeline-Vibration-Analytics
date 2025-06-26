@@ -5,9 +5,7 @@ from botocore.exceptions import ClientError
 def create_s3_bucket(bucket_name):
     """
     Create an S3 bucket
-    
     :param bucket_name: Bucket to create
-    :return: True if bucket was created, else False
     """
     try:
         s3_client = boto3.client('s3')
@@ -30,7 +28,7 @@ def create_s3_bucket(bucket_name):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     
-    bucket_name = 'vibration-daily-readings-log-project'
+    bucket_name = 'your-s3-bucket-name'
     
     if create_s3_bucket(bucket_name):
         print(f"Successfully created bucket: {bucket_name}")

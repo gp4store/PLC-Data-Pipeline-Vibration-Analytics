@@ -6,21 +6,10 @@ def generate_vibration_csv(filename, num_records=20, min_vibration=1.12, max_vib
                           start_date="2025-06-01", start_time="08:00:00", interval_minutes=15):
     """
     Generate a CSV file with vibration data
-    
-    Parameters:
-    - filename: Output CSV filename
-    - num_records: Number of data records to generate
-    - min_vibration: Minimum vibration value (mm/sec)
-    - max_vibration: Maximum vibration value (mm/sec)
-    - start_date: Starting date (YYYY-MM-DD format)
-    - start_time: Starting time (HH:MM:SS format)
-    - interval_minutes: Time interval between records in minutes
     """
     
-    # Parse start datetime
     start_datetime = datetime.strptime(f"{start_date} {start_time}", "%Y-%m-%d %H:%M:%S")
-    
-    # Prepare data
+
     data = []
     for i in range(num_records):
         record_time = start_datetime + timedelta(minutes=i * interval_minutes)
@@ -33,7 +22,6 @@ def generate_vibration_csv(filename, num_records=20, min_vibration=1.12, max_vib
             'vibration_mm_sec': vibration
         })
     
-    # Write to CSV
     with open(filename, 'w', newline='') as csvfile:
         fieldnames = ['record', 'date', 'time', 'vibration_mm_sec']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -50,7 +38,6 @@ def main():
     """Interactive script to generate vibration CSV files"""
     print("=== Vibration Data CSV Generator ===\n")
     
-    # Get user inputs
     filename = input("Enter output filename (e.g., 'vibration_data.csv'): ").strip()
     if not filename:
         filename = "vibration_data.csv"
@@ -74,7 +61,6 @@ def main():
         
         interval = int(input("Enter time interval in minutes (default: 15): ") or "15")
         
-        # Generate CSV
         generate_vibration_csv(
             filename=filename,
             num_records=num_records,
@@ -90,10 +76,5 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
 
-# Example usage
 if __name__ == "__main__":
-    # Uncomment the line below to run interactively
-    main()
-    
-    # Or use directly with specific parameters:
-    # generate_vibration_csv("my_vibration_data.csv", 30, 0.5, 3.2, "2025-07-01", "09:30:00", 10)
+   main()
