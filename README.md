@@ -4,7 +4,7 @@ This repository contains a complete **automated data pipeline** for collecting, 
 
 ## 🏗️ Architecture Overview
 
-![PLC Data Pipeline Architecture](images/pipeline-architecture.png)
+![PLC Data Pipeline - Vibration Analytics](images/datapp_structure.png)
 
 *Complete data pipeline architecture showing the flow from PLC data generation through AWS services to QuickSight analytics*
 
@@ -240,7 +240,7 @@ Once data is flowing through the pipeline:
 
 The pipeline enables real-time vibration monitoring dashboards in QuickSight:
 
-![QuickSight Vibration Dashboard](images/quicksight-dashboard.png)
+![PLC Data Pipeline - Vibration Analytics](images/quicksight_example.png)
 
 *Example: "Sum of Vibration by Time" line chart showing vibration trends throughout the day, with data automatically updated from your PLC logs*
 
