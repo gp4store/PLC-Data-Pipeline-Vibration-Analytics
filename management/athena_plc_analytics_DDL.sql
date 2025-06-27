@@ -14,7 +14,7 @@ WITH SERDEPROPERTIES (
     'serialization.format' = ',',
     'field.delim' = ','
 ) 
-LOCATION 's3://vibration-daily-readings-log-project/plc-logs/'
+LOCATION 's3://your-bucket-name/plc-logs/'
 TBLPROPERTIES (
     'projection.enabled'='true',
     'projection.year.type'='integer',
@@ -25,5 +25,5 @@ TBLPROPERTIES (
     'projection.day.type'='integer',
     'projection.day.range'='1,31',
     'projection.day.digits'='2',
-    'storage.location.template'='s3://vibration-daily-readings-log-project/plc-logs/year=${year}/month=${month}/day=${day}/'
+    'storage.location.template'='s3://your-bucket-name/plc-logs/year=${year}/month=${month}/day=${day}/'
 );
