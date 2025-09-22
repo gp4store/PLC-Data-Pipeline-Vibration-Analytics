@@ -2,7 +2,7 @@
 
 This repository contains a complete **automated data pipeline** for collecting, processing, and analyzing vibration data from Programmable Logic Controllers (PLCs). The pipeline provides **near real-time data processing** that automatically ingests daily CSV logs, processes them through AWS services, and delivers fresh analytics data ready for consumption.
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ![PLC Data Pipeline - Vibration Analytics](images/datapp_structure.png)
 
@@ -19,7 +19,7 @@ PLC Device → Local CSV → Python Upload → S3 Bucket → Lambda Trigger → 
 3. **Data Processing**: Lambda function **automatically updates Athena table with fresh daily data**
 4. **Data Analytics**: QuickSight consumes updated data for daily dashboards and analysis
 
-## 🔄 Pipeline Features
+## Pipeline Features
 
 - **Automated Scheduling**: Cron job ensures daily data upload without manual intervention
 - **Event-Driven Processing**: Automatic data processing triggered by S3 uploads
@@ -28,7 +28,7 @@ PLC Device → Local CSV → Python Upload → S3 Bucket → Lambda Trigger → 
 - **Partitioned Storage**: Optimized data organization for efficient querying
 - **Daily Analytics**: Fresh data available for daily analysis and reporting
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── scripts/
@@ -43,7 +43,7 @@ PLC Device → Local CSV → Python Upload → S3 Bucket → Lambda Trigger → 
 └── README.md                  # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -115,7 +115,7 @@ crontab -l
 sudo systemctl status cron
 ```
 
-## 📊 Data Schema
+## Data Schema
 
 The pipeline processes CSV files with the following structure:
 
@@ -135,7 +135,7 @@ s3://your-bucket/plc-logs/year=YYYY/month=MM/day=DD/
 
 This partitioning strategy optimizes query performance and reduces costs in Athena.
 
-## 🧪 Testing with Simulated Data
+## Testing with Simulated Data
 
 Use the `scripts/fake_datalog.py` script to generate test data:
 
@@ -159,7 +159,7 @@ generate_vibration_csv(
 )
 ```
 
-## 🔧 Pipeline Operation
+## Pipeline Operation
 
 ### Automated Daily Processing
 
@@ -190,7 +190,7 @@ The pipeline operates on a **fully automated daily cycle**:
 - **Analytics Availability**: Daily refresh
 - **Historical Data**: Retained with daily partitions for trend analysis
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -224,7 +224,7 @@ The Lambda function requires the following IAM permissions:
 }
 ```
 
-## 📈 QuickSight Integration
+## uickSight Integration
 
 Once data is flowing through the pipeline:
 
@@ -262,7 +262,7 @@ QuickSight supports automated email reporting for regular distribution of insigh
 
 **Important**: Email subscriptions to external recipients (non-AWS users) require a **QuickSight subscription** to the service. Internal AWS users can receive reports without additional subscription costs.
 
-## 🔍 Monitoring and Troubleshooting
+## Monitoring and Troubleshooting
 
 ### Common Issues
 
@@ -297,7 +297,7 @@ tail -f /var/log/plc_upload.log
 
 All scripts include comprehensive logging. Monitor CloudWatch logs for Lambda function execution and table update status.
 
-## 🛠️ Customization
+## Customization
 
 ### Adding New Metrics
 
@@ -311,7 +311,7 @@ To add additional sensor data:
 
 The pipeline supports any data collection frequency. Update the `interval_minutes` parameter in the data generation scripts.
 
-## 📝 Best Practices
+## Best Practices
 
 - **Cron Job Reliability**: Use absolute paths in cron jobs and redirect output to log files
 - **Pipeline Reliability**: Monitor Lambda function success rates and set up alerts
@@ -322,20 +322,3 @@ The pipeline supports any data collection frequency. Update the `interval_minute
 - **Security**: Follow AWS security best practices for S3 bucket policies and Lambda permissions
 - **Backup Strategy**: Consider keeping local backups before file deletion in upload script
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Test your changes with simulated data
-4. Submit a pull request
-
-## 📄 License
-
-This project is for educational and demonstration purposes.
-
-## 🆘 Support
-
-For issues and questions:
-- Check the troubleshooting section above
-- Review AWS CloudWatch logs
-- Open an issue in this repository
